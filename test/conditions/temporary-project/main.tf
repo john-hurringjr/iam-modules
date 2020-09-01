@@ -18,27 +18,27 @@
  *****************************************/
 
 
-resource "google_project_iam_member" "temporary_break_glass_project_iam_member" {
-  project = var.project_id
-  member  = "user:${var.user}"
-  role    = var.role
-
-  condition {
-    expression = "request.time < timestamp (\"2020-09-02T21:58:59Z\")"
-    title = "temporary-break-glass-${var.project_id}"
-  }
-}
-
 //resource "google_project_iam_member" "temporary_break_glass_project_iam_member" {
 //  project = var.project_id
 //  member  = "user:${var.user}"
 //  role    = var.role
 //
 //  condition {
-//    expression = "request.time < timestamp (${timeadd(timestamp(), "3600s")})"
+//    expression = "request.time < timestamp (\"2020-09-02T21:58:59Z\")"
 //    title = "temporary-break-glass-${var.project_id}"
 //  }
 //}
+
+resource "google_project_iam_member" "temporary_break_glass_project_iam_member" {
+  project = var.project_id
+  member  = "user:${var.user}"
+  role    = var.role
+
+  condition {
+    expression = "request.time < timestamp (\"${timeadd(timestamp(), "3600s")}\")"
+    title = "temporary-break-glass-${var.project_id}"
+  }
+}
 
 //resource "google_project_iam_member" "temporary_break_glass_project_iam_member" {
 //  project = var.project_id
