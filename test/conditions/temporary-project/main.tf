@@ -18,6 +18,7 @@
  *****************************************/
 
 resource "google_project_iam_member" "temporary_break_glass_project_iam_member" {
+  project = var.project_id
   member  = "user:${var.user}"
   role    = var.role
 
