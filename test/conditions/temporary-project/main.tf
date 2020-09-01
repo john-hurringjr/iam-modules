@@ -23,7 +23,7 @@ resource "google_project_iam_member" "temporary_break_glass_project_iam_member" 
   role    = var.role
 
   condition {
-    expression = "request.time < timestamp (\"${timeadd(timestamp(), 3600, s)}\")"
+    expression = "request.time < timestamp (\"${timeadd(timestamp(), ${var.duration}, s)}\")"
     title = "temporary-break-glass-${var.project_id}"
   }
 }
