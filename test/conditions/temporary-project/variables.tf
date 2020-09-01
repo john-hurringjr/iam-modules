@@ -29,8 +29,8 @@ variable "project_id" {
 
 variable "role" {
   type        = string
-  description = "Role you want to grant. Default is roles/editor"
-  default     = "roles/editor"
+  description = "Role you want to grant. Default is roles/compute.admin"
+  default     = "roles/compute.admin"
 }
 
 variable "duration" {
