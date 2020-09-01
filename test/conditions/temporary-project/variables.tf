@@ -34,7 +34,7 @@ variable "role" {
 }
 
 variable "duration" {
-  type        = number
-  description = "Duration in seconds for permission to last. Default is 3600"
-  default     = 3600
+  type        = string
+  description = "Duration in seconds for permission to last. Default is 3600s. Must include s at the end"
+  default     = "3600s"
 }
