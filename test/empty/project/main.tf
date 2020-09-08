@@ -17,13 +17,11 @@
   Policy Data
  *****************************************/
 
-resource "google_project_iam_member" "temporary_break_glass_project_iam_member" {
-  project = var.project_id
-  member  = "user:${var.user}"
-  role    = var.role
+data "google_iam_policy" "empty" {
 
-  condition {
-    expression = "request.time < timestamp (\"${timeadd(timestamp(), var.duration)}\")"
-    title = "temporary-break-glass-${var.project_id}"
-  }
+}
+
+resource "google_project_iam_policy" "apply_empty_policy" {
+  policy_data = data.google_iam_policy.empty.policy_data
+  project     = var.project_id
 }
