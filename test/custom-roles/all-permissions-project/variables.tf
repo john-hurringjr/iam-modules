@@ -167,7 +167,7 @@ variable "permissions" {
     "bigtable.keyvisualizer.*",
     "bigtable.locations.*",
     "bigtable.tables.*",
-    "billing.accounts.*",
+   #"billing.accounts.*",
     "billing.budgets.*",
     "billing.credits.*",
     "billing.resourceAssociations.*",
