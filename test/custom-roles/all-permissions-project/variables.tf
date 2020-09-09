@@ -521,7 +521,7 @@ variable "permissions" {
     "lifesciences.operations.*",
     "lifesciences.workflows.*",
     "logging.buckets.*",
-    "logging.cmekSettings.*",
+    #"logging.cmekSettings.*",
     "logging.exclusions.*",
     "logging.logEntries.*",
     "logging.logMetrics.*",
