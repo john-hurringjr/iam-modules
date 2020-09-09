@@ -29,6 +29,6 @@ variable "custom_role_friendly_name" {
 
 variable "custom_role_id" {
   type        = string
-  description = "ID of the custom role. Default custom-project-owner."
-  default     = "custom-project-owner"
+  description = "ID of the custom role. Default custom_project_owner."
+  default     = "custom_project_owner"
 }
