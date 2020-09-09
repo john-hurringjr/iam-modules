@@ -306,7 +306,7 @@ variable "permissions" {
     "compute.urlMaps.*",
     "compute.vpnGateways.*",
     "compute.vpnTunnels.*",
-    "compute.zoneOperations.*",
+    #"compute.zoneOperations.*",
     "compute.zones.*",
     "consumerprocurement.accounts.*",
     "consumerprocurement.entitlements.*",
