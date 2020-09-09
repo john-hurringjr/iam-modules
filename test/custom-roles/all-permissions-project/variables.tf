@@ -222,7 +222,7 @@ variable "permissions" {
     "cloudsupport.properties.*",
     "cloudsupport.techCases.*",
     "cloudtasks.locations.*",
-    "cloudtasks.queues.*",
+    #"cloudtasks.queues.*",
     "cloudtasks.tasks.*",
     "cloudtestservice.environmentcatalog.*",
     "cloudtestservice.matrices.*",
