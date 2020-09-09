@@ -56,6 +56,11 @@ variable "permissions" {
   description = "List of permissions desired for role. Default includes many project permissions (close to owner)"
   default = [
 
+    "compute.regions.get",
+    "compute.regions.list"
+
+    /*
+
     "accessapproval.requests.*",
     "accessapproval.settings.*",
     "accesscontextmanager.accessLevels.*",
@@ -700,6 +705,8 @@ variable "permissions" {
     "workflows.locations.*",
     "workflows.operations.*",
     "workflows.workflows.*"
+
+    */
 
   ]
 
