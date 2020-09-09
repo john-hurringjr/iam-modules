@@ -36,7 +36,7 @@ variable "custom_role_id" {
 variable "permissions" {
   type = list(string)
   description = "List of permissions desired for role. Default includes many project permissions (close to owner)"
-  default = ["cloudsql.sslCerts.*", "iam.roles.create"]
+  default = ["cloudsql.sslCerts.*"]
 
 }
 
