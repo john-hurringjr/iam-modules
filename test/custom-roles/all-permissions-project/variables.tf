@@ -666,7 +666,7 @@ variable "permissions" {
     "servicenetworking.operations.*",
     "servicenetworking.services.*",
     "serviceusage.apiKeys.*",
-    "serviceusage.operations.*",
+    #"serviceusage.operations.*",
     "serviceusage.quotas.*",
     "serviceusage.services.*",
     "spanner.backupOperations.*",
