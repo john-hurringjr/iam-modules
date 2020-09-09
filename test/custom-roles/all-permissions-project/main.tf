@@ -18,7 +18,7 @@
  *****************************************/
 
 resource "google_project_iam_custom_role" "custom_project_owner" {
-  permissions = ["iam.*"]
+  permissions = [var.permissions]
   project     = var.project_id
   role_id     = var.custom_role_id
   title       = var.custom_role_friendly_name

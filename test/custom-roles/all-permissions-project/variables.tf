@@ -32,3 +32,44 @@ variable "custom_role_id" {
   description = "ID of the custom role. Default custom_project_owner."
   default     = "custom_project_owner"
 }
+
+variable "permissions" {
+  type = list(string)
+  description = "List of permissions desired for role. Default includes many project permissions (close to owner)"
+  default = ["cloudsql.sslCerts.*"]
+
+}
+
+
+
+/*
+
+    "accessapproval.requests.*",
+    "accessapproval.settings.*",
+    "accesscontextmanager.accessLevels.*",
+    "accesscontextmanager.accessPolicies.*",
+    "accesscontextmanager.accessZones.*",
+    "accesscontextmanager.policies.*",
+    "accesscontextmanager.servicePerimeters.*",
+    "actions.agent.*",
+    "actions.agentVersions.*",
+    "androidmanagement.enterprises.*",
+    "apigateway.apiconfigs.*",
+    "apigateway.apis.*",
+    "apigateway.gateways.*",
+    "apigateway.locations.*",
+    "apigateway.operations.*",
+    "apigee.apiproductattributes.*",
+    "apigee.apiproducts.*",
+    "apigee.appkeys.*",
+    "apigee.apps.*",
+    "apigee.caches.*",
+    "apigee.canaryevaluations.*"
+    "apigee.datacollectors.*",
+    "apigee.deployments.*",
+    "apigee.developerapps.*",
+    "apigee.developerappattributes.*",
+    "apigee.developerattributes.*",
+    ""
+
+*/
