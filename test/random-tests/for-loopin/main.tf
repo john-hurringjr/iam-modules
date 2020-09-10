@@ -16,18 +16,26 @@
 /******************************************
   Policy Data
  *****************************************/
-
-variable "role_mapping" {
-  description = "Map"
-  default = {
-    "value1" = "roles/compute.instanceAdmin.v1"
-    "value2" = "roles/storage.admin"
-  }
+variable "roles" {
+  type = list
+  default = [
+    "roles/compute.instanceAdmin.v1",
+    "roles/storage.admin"
+  ]
 }
 
+//variable "role_mapping" {
+//  description = "Map"
+//  default = {
+//    "value1" = "roles/compute.instanceAdmin.v1"
+//    "value2" = "roles/storage.admin"
+//  }
+//}
+
 resource "google_project_iam_member" "iam_member" {
-  for_each = var.role_mapping
+  for_each = var.roles
   project = var.project_id
   member  = "member"
   role    = each.value
 }
+
