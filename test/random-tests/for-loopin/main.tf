@@ -20,14 +20,14 @@
 variable "role_mapping" {
   description = "Map"
   default = {
-    "user@id" = "roles/compute.instanceAdmin.v1"
-    "user@id" = "roles/storage.admin"
+    "value1" = "roles/compute.instanceAdmin.v1"
+    "value2" = "roles/storage.admin"
   }
 }
 
 resource "google_project_iam_member" "iam_member" {
   for_each = var.role_mapping
   project = var.project_id
-  member  = each.key
+  member  = "member"
   role    = each.value
 }
