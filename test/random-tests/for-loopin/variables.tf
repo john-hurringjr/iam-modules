@@ -27,7 +27,7 @@
 //  description = "Project ID to apply IAM policy"
 //}
 
-//variable "roles" {
-//  type        = list(string)
-//  description = "Roles you want to grant."
-//}
+variable "roles" {
+  type        = list(string)
+  description = "Roles you want to grant."
+}
