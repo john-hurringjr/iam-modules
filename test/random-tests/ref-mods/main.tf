@@ -20,7 +20,7 @@
 provider "google" {}
 
 module "roles_list" {
-  source = "github.com/john-hurringjr/iam-modules/roles-lists/project-admin"
+  source = "github.com/john-hurringjr/iam-modules/test/roles-lists/project-admin"
 }
 
 module "for_loopin" {
