@@ -16,29 +16,18 @@
 /******************************************
   Variables
  *****************************************/
+
+//variable "user" {
+//  type        = string
+//  description = "User (email) that will be used to access project"
+//}
+
 variable "project_id" {
   type        = string
-  description = "Project ID this custom role will be created on"
+  description = "Project ID to apply IAM policy"
 }
 
-variable "custom_role_friendly_name" {
-  type        = string
-  description = "Name of the custom role. Default custom-project-owner."
-  default     = "custom-project-owner"
-}
-
-variable "custom_role_id" {
-  type        = string
-  description = "ID of the custom role. Default custom_project_owner."
-  default     = "custom_project_owner"
-}
-
-
-variable "permissions" {
-  type = list(string)
-  description = "List of permissions desired for role. Default includes many project permissions (close to owner)"
-  default = [
-
-  ]
-
-}
+//variable "roles" {
+//  type        = list(string)
+//  description = "Roles you want to grant."
+//}

@@ -14,31 +14,20 @@
  */
 
 /******************************************
-  Variables
+  Policy Data
  *****************************************/
-variable "project_id" {
-  type        = string
-  description = "Project ID this custom role will be created on"
+
+variable "role_mapping" {
+  description = "Map"
+  default = {
+    "user@id" = "roles/compute.instanceAdmin.v1"
+    "user@id" = "roles/storage.admin"
+  }
 }
 
-variable "custom_role_friendly_name" {
-  type        = string
-  description = "Name of the custom role. Default custom-project-owner."
-  default     = "custom-project-owner"
-}
-
-variable "custom_role_id" {
-  type        = string
-  description = "ID of the custom role. Default custom_project_owner."
-  default     = "custom_project_owner"
-}
-
-
-variable "permissions" {
-  type = list(string)
-  description = "List of permissions desired for role. Default includes many project permissions (close to owner)"
-  default = [
-
-  ]
-
+resource "google_project_iam_member" "iam_member" {
+  for_each = var.role_mapping
+  project = var.project_id
+  member  = each.key
+  role    = each.value
 }
