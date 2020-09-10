@@ -14,12 +14,5 @@
  */
 
 /******************************************
-  Policy Data
+  Outputs
  *****************************************/
-
-resource "google_project_iam_member" "iam_member" {
-  count   = length(var.roles)
-  project = var.project_id
-  member  = var.user
-  role    = var.roles[count.index]
-}

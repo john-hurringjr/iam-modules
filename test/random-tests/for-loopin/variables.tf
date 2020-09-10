@@ -17,15 +17,15 @@
   Variables
  *****************************************/
 
-//variable "user" {
-//  type        = string
-//  description = "User (email) that will be used to access project"
-//}
-//
-//variable "project_id" {
-//  type        = string
-//  description = "Project ID to apply IAM policy"
-//}
+variable "user" {
+  type        = string
+  description = "User (email) that will be used to access project"
+}
+
+variable "project_id" {
+  type        = string
+  description = "Project ID to apply IAM policy"
+}
 
 variable "roles" {
   type        = list(string)

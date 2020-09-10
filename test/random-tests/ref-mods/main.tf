@@ -14,12 +14,18 @@
  */
 
 /******************************************
-  Policy Data
+  Test
  *****************************************/
 
-resource "google_project_iam_member" "iam_member" {
-  count   = length(var.roles)
-  project = var.project_id
-  member  = var.user
-  role    = var.roles[count.index]
+provider "google" {}
+
+module "roles_list" {
+  source = "github.com/john-hurringjr/iam-modules/roles-lists/project-admin"
+}
+
+module "for_loopin" {
+  source      = "github.com/john-hurringjr/iam-modules/test/random-tests/for-loopin"
+  project_id  = ""
+  user        = ""
+  roles       = module.roles_list.project_admin_roles
 }
