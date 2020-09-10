@@ -24,7 +24,7 @@ module "roles_list" {
 }
 
 module "for_loopin" {
-  source      = "github.com/john-hurringjr/iam-modules/test/random-tests/for-loopin"
+  source      = "github.com/john-hurringjr/iam-modules/test/conditions/temporary-project"
   project_id  = ""
   user        = ""
   roles       = module.roles_list.project_admin_roles
