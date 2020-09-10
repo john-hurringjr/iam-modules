@@ -17,15 +17,23 @@
   Policy Data
  *****************************************/
 
+variable "project_admin" {
+  type = list(string)
+  default = [
+    "roles/apigee.admin",
+    "roles/appengine.appAdmin",
+    "roles/artifactregistry.admin",
+    "roles/assuredworkloads.admin",
+    "roles/automl.admin",
+    "roles/bigquery.admin",
+    "roles/bigtable.admin",
+    "roles/binaryauthorization.policyAdmin",
+    "roles/binaryauthorization.attestorsAdmin",
+    "roles/privateca.admin",
+    "roles/cloudfunctions.admin",
+  ]
+}
 
-resource "google_project_iam_member" "temporary_custom_project_owner_iam_member" {
-  count   = length(var.roles)
-  project = var.project_id
-  member  = "user:${var.user}"
-  role    = var.roles[count.index]
-
-  condition {
-    expression = "request.time < timestamp (\"${timeadd(timestamp(), var.duration)}\")"
-    title = "temporary-break-glass-${var.project_id}"
-  }
+output "project_admin_roles" {
+  value = var.project_admin
 }

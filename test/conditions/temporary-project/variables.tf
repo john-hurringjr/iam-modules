@@ -27,14 +27,13 @@ variable "project_id" {
   description = "Project ID to apply IAM policy"
 }
 
-variable "role" {
-  type        = string
-  description = "Role you want to grant. Default is roles/compute.admin"
-  default     = "roles/compute.admin"
+variable "roles" {
+  type        = list(string)
+  description = "Roles you want to grant. For example: roles/compute.instanceAdmin.v1"
 }
 
 variable "duration" {
   type        = string
-  description = "Duration in seconds for permission to last. Default is 3600s. Must include s at the end"
+  description = "Duration in seconds for permissions to last. Default is 3600s. Must include s at the end"
   default     = "3600s"
 }
