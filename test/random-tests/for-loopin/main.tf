@@ -24,6 +24,13 @@ variable "roles" {
   ]
 }
 
+resource "google_project_iam_member" "iam_member" {
+  count   = length(var.roles)
+  project = ""
+  member  = ""
+  role    = var.roles[count.index]
+}
+
 //variable "role_mapping" {
 //  description = "Map"
 //  default = {
@@ -31,11 +38,10 @@ variable "roles" {
 //    "value2" = "roles/storage.admin"
 //  }
 //}
-
-resource "google_project_iam_member" "iam_member" {
-  for_each = var.roles
-  project = var.project_id
-  member  = "member"
-  role    = each.value
-}
-
+//
+//resource "google_project_iam_member" "iam_member" {
+//  for_each = var.roles
+//  project = ""
+//  member  = ""
+//  role    = each.value
+//}
