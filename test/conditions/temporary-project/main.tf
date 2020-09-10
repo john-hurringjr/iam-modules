@@ -26,6 +26,6 @@ resource "google_project_iam_member" "temporary_custom_project_owner_iam_member"
 
   condition {
     expression = "request.time < timestamp (\"${timeadd(timestamp(), var.duration)}\")"
-    title = "temporary-break-glass-${var.project_id}"
+    title = "temp-${var.user}-${var.roles[count.index]}"
   }
 }
