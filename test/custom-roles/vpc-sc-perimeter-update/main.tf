@@ -17,14 +17,16 @@
   Policy Data
  *****************************************/
 
-resource "google_project_iam_member" "temporary_custom_project_owner_iam_member" {
-  count   = length(var.roles)
-  project = var.project_id
-  member  = "user:${var.user}"
-  role    = var.roles[count.index]
-
-  condition {
-    expression = "request.time < timestamp (\"${timeadd(timestamp(), var.duration)}\")"
-    title = "temp-${var.user}-${var.roles[count.index]}"
-  }
+resource "google_organization_iam_custom_role" "vpc_sc_update_custom_role" {
+  permissions = [
+    "accesscontextmanager.servicePerimeters.get",
+    "accesscontextmanager.servicePerimeters.list",
+    "accesscontextmanager.servicePerimeters.update",
+    "resourcemanager.organizations.get",
+    "resourcemanager.projects.get",
+    "resourcemanager.projects.list"
+  ]
+  org_id      = var.org_id
+  role_id     = var.custom_role_id
+  title       = var.custom_role_friendly_name
 }

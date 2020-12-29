@@ -14,17 +14,22 @@
  */
 
 /******************************************
-  Policy Data
+  Varables
  *****************************************/
 
-resource "google_project_iam_member" "temporary_custom_project_owner_iam_member" {
-  count   = length(var.roles)
-  project = var.project_id
-  member  = "user:${var.user}"
-  role    = var.roles[count.index]
+variable "org_id" {
+  description = "Org ID where this custom role will be created"
+  type        = number
+}
 
-  condition {
-    expression = "request.time < timestamp (\"${timeadd(timestamp(), var.duration)}\")"
-    title = "temp-${var.user}-${var.roles[count.index]}"
-  }
+variable "custom_role_id" {
+  description = "Custom role ID to be used. Default is: vpc_sc_update_custom"
+  default     = "vpc_sc_update_custom"
+  type        = string
+}
+
+variable "custom_role_friendly_name" {
+  description = "Friendly name for role. Default: VPC SC Update Perimeter"
+  default     = "VPC SC Update Perimeter"
+  type        = string
 }

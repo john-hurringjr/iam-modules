@@ -14,17 +14,9 @@
  */
 
 /******************************************
-  Policy Data
+  Outputs
  *****************************************/
 
-resource "google_project_iam_member" "temporary_custom_project_owner_iam_member" {
-  count   = length(var.roles)
-  project = var.project_id
-  member  = "user:${var.user}"
-  role    = var.roles[count.index]
-
-  condition {
-    expression = "request.time < timestamp (\"${timeadd(timestamp(), var.duration)}\")"
-    title = "temp-${var.user}-${var.roles[count.index]}"
-  }
+output "custom_role_id" {
+  value = google_organization_iam_custom_role.vpc_sc_update_custom_role.id
 }
